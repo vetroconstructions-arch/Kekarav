@@ -2391,3 +2391,36 @@ h4 {
     font-size: 1.5rem;
   }
 }
+
+/* ─── Modal Form Overrides (for light background) ─── */
+.modal-content .form-group label {
+  color: var(--color-primary);
+}
+
+.modal-content .form-group input,
+.modal-content .form-group select,
+.modal-content .form-group textarea {
+  background: var(--color-accent);
+  border-color: rgba(10, 46, 41, 0.1);
+  color: var(--color-text);
+}
+
+.modal-content .form-group input::placeholder,
+.modal-content .form-group textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.modal-content .form-group input:focus,
+.modal-content .form-group select:focus,
+.modal-content .form-group textarea:focus {
+  border-color: var(--color-secondary);
+  background: var(--color-white);
+}
+
+.modal-content .form-success h3 {
+  color: var(--color-primary);
+}
+
+.modal-content .form-success p {
+  color: var(--color-text-light);
+}
