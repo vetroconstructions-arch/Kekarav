@@ -642,8 +642,8 @@ function App() {
                         <div className="contact-info animate-on-scroll slide-left">
                             {[
                                 { icon: '📍', title: 'Project Site Address', text: 'Survey 171, Bavdhan Hills, Pune 411021' },
-                                { icon: '📞', title: 'Kekarav Sales Office', text: '+91 XXXXX XXXXX (10 AM – 7 PM)' },
-                                { icon: '✉️', title: 'Email Us', text: 'info@kekarav.in' },
+                                { icon: '📞', title: 'Kekarav Sales Office', text: '+91 7744009295 (10 AM – 7 PM)' },
+                                { icon: '✉️', title: 'Email Us', text: 'propsmartrealty@gmail.com' },
                                 { icon: '🕐', title: 'Site Visit Timings', text: 'Open All Days — 10:00 AM to 6:00 PM' },
                             ].map((c, i) => (
                                 <div className="contact-info-item" key={i} data-stagger style={{ opacity: 0, transform: 'translateX(-30px)', transition: `all 0.5s ease ${i * 0.12}s` }}>
@@ -657,7 +657,7 @@ function App() {
                                 <form className="contact-form" onSubmit={handleFormSubmit}>
                                     <div className="form-row">
                                         <div className="form-group"><label htmlFor="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your full name" value={formData.name} onChange={handleFormChange} required /></div>
-                                        <div className="form-group"><label htmlFor="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={handleFormChange} required /></div>
+                                        <div className="form-group"><label htmlFor="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+91 7744009295" value={formData.phone} onChange={handleFormChange} required /></div>
                                     </div>
                                     <div className="form-group"><label htmlFor="email">Email Address</label><input type="email" id="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleFormChange} required /></div>
                                     <div className="form-group"><label htmlFor="plotSize">Preferred Plot Size</label>
@@ -691,12 +691,19 @@ function App() {
                         </div>
                         <div className="footer-column"><h4>Quick Links</h4><ul><li><a href="#overview" onClick={(e) => { e.preventDefault(); scrollTo('overview') }}>About Kekarav</a></li><li><a href="#why-bavdhan" onClick={(e) => { e.preventDefault(); scrollTo('why-bavdhan') }}>Why Bavdhan</a></li><li><a href="#amenities" onClick={(e) => { e.preventDefault(); scrollTo('amenities') }}>Amenities</a></li><li><a href="#plots" onClick={(e) => { e.preventDefault(); scrollTo('plots') }}>NA Plot Prices</a></li><li><a href="#investment" onClick={(e) => { e.preventDefault(); scrollTo('investment') }}>Investment Guide</a></li></ul></div>
                         <div className="footer-column"><h4>Resources</h4><ul><li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq') }}>FAQ</a></li><li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison') }}>Comparison</a></li><li><a href="#location" onClick={(e) => { e.preventDefault(); scrollTo('location') }}>Location Map</a></li><li><a href="#developers" onClick={(e) => { e.preventDefault(); scrollTo('developers') }}>Developers</a></li><li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact') }}>Contact Sales</a></li></ul></div>
-                        <div className="footer-column"><h4>Project Office</h4><ul><li><a href="#">Survey 171, Bavdhan Hills</a></li><li><a href="#">Pune, Maharashtra 411021</a></li><li><a href="mailto:info@kekarav.in">info@kekarav.in</a></li></ul></div>
+                        <div className="footer-column"><h4>Project Office</h4><ul><li><a href="#">Survey 171, Bavdhan Hills</a></li><li><a href="#">Pune, Maharashtra 411021</a></li><li><a href="mailto:propsmartrealty@gmail.com">propsmartrealty@gmail.com</a></li><li><a href="tel:+917744009295">+91 7744 009 295</a></li></ul></div>
                     </div>
                     <div className="seo-footer animate-on-scroll"><h4>Kekarav Bungalow NA Plots — Number One NA Bungalow Plots in Pune</h4><p><a href="#plots">NA Bungalow Plots in Bavdhan, Pune</a> | <a href="#plots">Kekarav Bungalow NA Plots</a> | <a href="#plots">Number One NA Bungalow Plots in Pune</a> | <a href="#plots">Villa Plots in Pune</a> | <a href="#location">Bungalow Plots near Hinjewadi</a> | <a href="#investment">NA Plots Investment 2026</a> | <a href="#faq">IGBC Certified Plots</a> | <a href="#comparison">Best Plotting Projects Pune</a></p><p className="seo-footer-areas"><strong>Nearby:</strong> Kothrud | Pashan | Baner | Aundh | Hinjewadi | Chandani Chowk | Warje | Sus | Mulshi | Pirangut | Wakad</p></div>
                     <div className="footer-bottom"><p>© 2026 Kekarav Bavdhan. All rights reserved. | By TRU Realty, Malpani Group & Shrem Group</p><p className="footer-disclaimer">Disclaimer: Content is for informational purposes. Prices subject to change. All images are artist's impressions.</p></div>
                 </div>
             </footer>
+
+            {/* ═══════════ WHATSAPP BUTTON ═══════════ */}
+            <a href="https://wa.me/917744009295?text=Hello%2C%20I%20am%20interested%20in%20NA%20Bungalow%20Plots%20in%20Bavdhan" className="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+            </a>
         </>
     )
 }
