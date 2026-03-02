@@ -188,7 +188,27 @@ function App() {
     }, [])
 
     const handleFormChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value })
-    const handleFormSubmit = (e) => { e.preventDefault(); setFormSubmitted(true); setTimeout(() => setFormSubmitted(false), 5000) }
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await fetch("https://formsubmit.co/ajax/propsmartrealty@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: "New Enquiry from Kekarav Bavdhan Website",
+                    ...formData
+                })
+            });
+            setFormSubmitted(true);
+            setFormData({ name: '', phone: '', email: '', plotSize: '', message: '' });
+            setTimeout(() => setFormSubmitted(false), 5000);
+        } catch (error) {
+            console.error(error);
+        }
+    }
     const scrollTo = (id) => { setMobileMenuOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
 
     const faqData = [
@@ -643,7 +663,6 @@ function App() {
                             {[
                                 { icon: '📍', title: 'Project Site Address', text: 'Survey 171, Bavdhan Hills, Pune 411021' },
                                 { icon: '📞', title: 'Kekarav Sales Office', text: '+91 7744009295 (10 AM – 7 PM)' },
-                                { icon: '✉️', title: 'Email Us', text: 'propsmartrealty@gmail.com' },
                                 { icon: '🕐', title: 'Site Visit Timings', text: 'Open All Days — 10:00 AM to 6:00 PM' },
                             ].map((c, i) => (
                                 <div className="contact-info-item" key={i} data-stagger style={{ opacity: 0, transform: 'translateX(-30px)', transition: `all 0.5s ease ${i * 0.12}s` }}>
@@ -691,7 +710,7 @@ function App() {
                         </div>
                         <div className="footer-column"><h4>Quick Links</h4><ul><li><a href="#overview" onClick={(e) => { e.preventDefault(); scrollTo('overview') }}>About Kekarav</a></li><li><a href="#why-bavdhan" onClick={(e) => { e.preventDefault(); scrollTo('why-bavdhan') }}>Why Bavdhan</a></li><li><a href="#amenities" onClick={(e) => { e.preventDefault(); scrollTo('amenities') }}>Amenities</a></li><li><a href="#plots" onClick={(e) => { e.preventDefault(); scrollTo('plots') }}>NA Plot Prices</a></li><li><a href="#investment" onClick={(e) => { e.preventDefault(); scrollTo('investment') }}>Investment Guide</a></li></ul></div>
                         <div className="footer-column"><h4>Resources</h4><ul><li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq') }}>FAQ</a></li><li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison') }}>Comparison</a></li><li><a href="#location" onClick={(e) => { e.preventDefault(); scrollTo('location') }}>Location Map</a></li><li><a href="#developers" onClick={(e) => { e.preventDefault(); scrollTo('developers') }}>Developers</a></li><li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact') }}>Contact Sales</a></li></ul></div>
-                        <div className="footer-column"><h4>Project Office</h4><ul><li><a href="#">Survey 171, Bavdhan Hills</a></li><li><a href="#">Pune, Maharashtra 411021</a></li><li><a href="mailto:propsmartrealty@gmail.com">propsmartrealty@gmail.com</a></li><li><a href="tel:+917744009295">+91 7744 009 295</a></li></ul></div>
+                        <div className="footer-column"><h4>Project Office</h4><ul><li><a href="#">Survey 171, Bavdhan Hills</a></li><li><a href="#">Pune, Maharashtra 411021</a></li><li><a href="tel:+917744009295">+91 7744 009 295</a></li></ul></div>
                     </div>
                     <div className="seo-footer animate-on-scroll"><h4>Kekarav Bungalow NA Plots — Number One NA Bungalow Plots in Pune</h4><p><a href="#plots">NA Bungalow Plots in Bavdhan, Pune</a> | <a href="#plots">Kekarav Bungalow NA Plots</a> | <a href="#plots">Number One NA Bungalow Plots in Pune</a> | <a href="#plots">Villa Plots in Pune</a> | <a href="#location">Bungalow Plots near Hinjewadi</a> | <a href="#investment">NA Plots Investment 2026</a> | <a href="#faq">IGBC Certified Plots</a> | <a href="#comparison">Best Plotting Projects Pune</a></p><p className="seo-footer-areas"><strong>Nearby:</strong> Kothrud | Pashan | Baner | Aundh | Hinjewadi | Chandani Chowk | Warje | Sus | Mulshi | Pirangut | Wakad</p></div>
                     <div className="footer-bottom"><p>© 2026 Kekarav Bavdhan. All rights reserved. | By TRU Realty, Malpani Group & Shrem Group</p><p className="footer-disclaimer">Disclaimer: Content is for informational purposes. Prices subject to change. All images are artist's impressions.</p></div>
