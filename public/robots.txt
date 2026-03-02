@@ -3,7 +3,7 @@ Allow: /
 Disallow: /src/
 Disallow: /node_modules/
 
-Sitemap: https://kekaravbavdhan.com/sitemap.xml
+Sitemap: https://kekaravbavdhan.in/sitemap.xml
 
 # Kekarav Bavdhan - Premium NA Bungalow Plots in Bavdhan, Pune
-# https://kekaravbavdhan.com
+# https://kekaravbavdhan.in
