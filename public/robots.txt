@@ -1,9 +1,22 @@
+# Kekarav Bavdhan - Robots.txt
+# Updated: 2026-03-06
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
 User-agent: *
 Allow: /
-Disallow: /src/
 Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
 
+# Sitemap
 Sitemap: https://kekaravbavdhan.in/sitemap.xml
 
-# Kekarav Bavdhan - Premium NA Bungalow Plots in Bavdhan, Pune
-# https://kekaravbavdhan.in
+# Host
+Host: https://kekaravbavdhan.in

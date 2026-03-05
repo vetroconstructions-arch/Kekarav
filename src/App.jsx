@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+import SeoKeywordsMatrix from './components/SeoKeywordsMatrix'
+import SeoBlogSection from './components/SeoBlogSection'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -702,6 +704,10 @@ function App() {
                     </div>
                 </div>
             </section>
+
+            <SeoBlogSection />
+
+            <SeoKeywordsMatrix />
 
             {/* ═══════════ FOOTER ═══════════ */}
             <footer className="footer" role="contentinfo">
