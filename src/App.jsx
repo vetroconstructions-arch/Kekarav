@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import SeoKeywordsMatrix from './components/SeoKeywordsMatrix'
 import SeoBlogSection from './components/SeoBlogSection'
+import LocalityGuide from './components/LocalityGuide'
+import EmiCalculator from './components/EmiCalculator'
+import Testimonials from './components/Testimonials'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -237,8 +240,10 @@ function App() {
         { id: 'why-bavdhan', label: 'WHY BAVDHAN' },
         { id: 'amenities', label: 'AMENITIES' },
         { id: 'plots', label: 'NA PLOTS' },
+        { id: 'locality-guide', label: 'NEIGHBORHOODS' },
+        { id: 'emi-calculator', label: 'ROI CALC' },
+        { id: 'testimonials', label: 'REVIEWS' },
         { id: 'location', label: 'LOCATION' },
-        { id: 'faq', label: 'FAQ' },
     ]
 
     return (
@@ -610,6 +615,10 @@ function App() {
                     </div>
                 </div>
             </section>
+
+            <LocalityGuide />
+            <EmiCalculator />
+            <Testimonials />
 
             {/* ═══════════ FAQ ═══════════ */}
             <section className="section faq" id="faq" aria-label="Frequently Asked Questions">
