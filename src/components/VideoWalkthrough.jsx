@@ -7,8 +7,8 @@ const VideoWalkthrough = () => {
         "name": "Kekarav Bavdhan Virtual Walkthrough & Township Tour",
         "description": "Virtual tour of Kekarav premium NA bungalow plots in Bavdhan Hills, Pune. Showcasing the 45-acre layout, clubhouse, and natural surroundings.",
         "thumbnailUrl": [
-            "https://kekaravbavdhan.in/images/hero.png",
-            "https://kekaravbavdhan.in/images/amenities.png"
+            "https://kekaravbavdhan.in/images/hero.webp",
+            "https://kekaravbavdhan.in/images/amenities.webp"
         ],
         "uploadDate": "2026-03-01T08:00:00+08:00",
         "duration": "PT3M45S",
@@ -39,7 +39,7 @@ const VideoWalkthrough = () => {
                 <div className="video-container animate-on-scroll">
                     {/* Simulated video player with a thumbnail overlay */}
                     <div className="video-player-mock">
-                        <img src="/images/hero.png" alt="Kekarav Bavdhan Video Thumbnail" className="video-thumbnail" />
+                        <img src="/images/hero.webp" alt="Kekarav Bavdhan Video Thumbnail" className="video-thumbnail" />
                         <div className="play-button-overlay">
                             <span className="play-icon">▶</span>
                         </div>

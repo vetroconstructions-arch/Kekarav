@@ -24,14 +24,14 @@ const SeoBlogSection = () => {
             "url": "https://kekaravbavdhan.in/",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://kekaravbavdhan.in/images/hero.png"
+                "url": "https://kekaravbavdhan.in/images/hero.webp"
             }
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": `https://kekaravbavdhan.in/blog/${article.id}`
         },
-        "image": "https://kekaravbavdhan.in/images/hero.png",
+        "image": "https://kekaravbavdhan.in/images/hero.webp",
         "articleSection": "Real Estate Investment",
         "inLanguage": "en-IN"
     }));

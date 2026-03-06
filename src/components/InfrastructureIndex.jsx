@@ -39,20 +39,23 @@ const infrastructureData = [
     }
 ];
 
-const InfrastructureIndex = () => {
+const InfrastructureIndex = ({ t, data }) => {
+    if (!t) return null;
+    const itemsData = data || [];
+
     return (
         <section className="section infra-index" id="infrastructure" aria-label="Bavdhan Infrastructure Index">
             <div className="container">
                 <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
-                    <span className="section-label" style={{ justifyContent: 'center' }}>Hyper-Local Connectivity</span>
-                    <h2 className="section-title">Bavdhan <span className="gold-text">Infrastructure Proximity Index</span></h2>
+                    <span className="section-label" style={{ justifyContent: 'center' }}>{t.label}</span>
+                    <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.title.replace('Infrastructure Proximity Index', '<span class=\"gold-text\">Infrastructure Proximity Index</span>').replace('पायाभूत सुविधा निर्देशांक', '<span class=\"gold-text\">पायाभूत सुविधा निर्देशांक</span>') }} />
                     <p className="section-subtitle" style={{ margin: '0 auto var(--space-3xl)' }}>
-                        <strong>Kekarav Bavdhan</strong> sits at the nexus of West Pune's most dynamic infrastructure growth, ensuring long-term appreciation for your NA plot investment.
+                        {t.subtitle}
                     </p>
                 </div>
 
                 <div className="infra-grid animate-on-scroll">
-                    {infrastructureData.map((category, idx) => (
+                    {itemsData.map((category, idx) => (
                         <div
                             className="infra-card"
                             key={idx}
@@ -69,9 +72,8 @@ const InfrastructureIndex = () => {
                                         <div className="infra-item-name">{item.name}</div>
                                         <div className="infra-item-stats">
                                             <span className="infra-distance">{item.distance}</span>
-                                            <span className="infra-time">{item.time} drive</span>
+                                            <span className="infra-time">{item.time} {t.drive}</span>
                                         </div>
-                                        {/* Visual distance bar proxy */}
                                         <div className="infra-bar-bg">
                                             <div
                                                 className="infra-bar-fill"

@@ -1,0 +1,17 @@
+{
+    "name": "Kekarav Bavdhan - NA Bungalow Plots",
+    "short_name": "Kekarav",
+    "description": "Premium NA Bungalow Plots in Bavdhan, Pune. IGBC Platinum Certified.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#061D19",
+    "theme_color": "#0A2E29",
+    "icons": [
+        {
+            "src": "/vite.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

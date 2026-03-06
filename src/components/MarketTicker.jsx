@@ -8,15 +8,16 @@ const tickerData = [
     { text: "INVESTMENT: 70% of Kekarav Phase 1 inventory already sold out.", trend: "up" },
 ];
 
-const MarketTicker = () => {
+const MarketTicker = ({ t }) => {
+    const items = t?.items || [];
     return (
         <div className="market-ticker" aria-label="Real-Time Pune Real Estate Market News">
             <div className="ticker-label">
-                <span className="live-dot"></span> LIVE MARKET
+                <span className="live-dot"></span> {t?.label || 'LIVE MARKET'}
             </div>
             <div className="ticker-scroll">
                 <div className="ticker-content">
-                    {[...tickerData, ...tickerData].map((item, index) => (
+                    {[...items, ...items].map((item, index) => (
                         <div className="ticker-item" key={index}>
                             {item.trend === 'up' && <span className="trend-icon up">▲</span>}
                             {item.trend === 'down' && <span className="trend-icon down">▼</span>}

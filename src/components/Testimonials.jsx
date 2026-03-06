@@ -70,24 +70,23 @@ const reviewSchema = {
     }))
 };
 
-const Testimonials = () => {
+const Testimonials = ({ t }) => {
+    if (!t) return null;
+    const items = t.items || [];
+
     return (
         <section className="section testimonials" id="testimonials" aria-label="Customer Testimonials">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-            />
             <div className="container">
                 <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
-                    <span className="section-label" style={{ justifyContent: 'center' }}>What Our Buyers Say</span>
-                    <h2 className="section-title">Trusted by <span className="gold-text">100+ Happy Families</span></h2>
+                    <span className="section-label" style={{ justifyContent: 'center' }}>{t.label}</span>
+                    <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.title.replace('Happy Families', '<span class=\"gold-text\">Happy Families</span>').replace('आनंदी कुटुंबांचा', '<span class=\"gold-text\">आनंदी कुटुंबांचा</span>') }} />
                     <p className="section-subtitle" style={{ margin: '0 auto var(--space-3xl)' }}>
-                        Hear from families and investors who chose <strong>Kekarav Bavdhan</strong> for their dream home.
+                        {t.subtitle}
                     </p>
                 </div>
 
                 <div className="testimonials-grid animate-on-scroll">
-                    {testimonials.map((t, i) => (
+                    {items.map((item, i) => (
                         <div
                             className="testimonial-card"
                             key={i}
@@ -98,18 +97,14 @@ const Testimonials = () => {
                                 transition: `all 0.5s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s`
                             }}
                         >
-                            <div className="testimonial-stars">
-                                {'★'.repeat(t.rating)}
-                            </div>
-                            <blockquote className="testimonial-text">"{t.text}"</blockquote>
+                            <div className="testimonial-stars">★★★★★</div>
+                            <blockquote className="testimonial-text">"{item.text}"</blockquote>
                             <div className="testimonial-author">
-                                <div className="testimonial-avatar">{t.name.split(' ').map(n => n[0]).join('')}</div>
+                                <div className="testimonial-avatar">{item.name.split(' ').map(n => n[0]).join('')}</div>
                                 <div>
-                                    <div className="testimonial-name">{t.name}</div>
-                                    <div className="testimonial-role">{t.role}</div>
-                                    {t.plotSize !== "Consultant" && (
-                                        <div className="testimonial-plot">Plot: {t.plotSize}</div>
-                                    )}
+                                    <div className="testimonial-name">{item.name}</div>
+                                    <div className="testimonial-role">{item.role}</div>
+                                    <div className="testimonial-plot">Plot: {item.plot}</div>
                                 </div>
                             </div>
                         </div>

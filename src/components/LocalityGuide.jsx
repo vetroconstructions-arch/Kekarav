@@ -1,12 +1,14 @@
 import React from 'react';
 import localities from '../data/localities.json';
 
-const LocalityGuide = () => {
+const LocalityGuide = ({ t }) => {
+    if (!t) return null;
+
     const localitySchema = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Neighborhoods Near Kekarav Bavdhan NA Plots",
-        "description": "Guide to neighborhoods and localities near Kekarav Bavdhan premium NA bungalow plots in Pune.",
+        "name": t.title,
+        "description": t.subtitle,
         "itemListElement": localities.map((loc, i) => ({
             "@type": "ListItem",
             "position": i + 1,
@@ -23,10 +25,10 @@ const LocalityGuide = () => {
             />
             <div className="container">
                 <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
-                    <span className="section-label" style={{ justifyContent: 'center' }}>Neighborhood Guide</span>
-                    <h2 className="section-title">Premium Localities Near <span className="gold-text">Kekarav Bavdhan</span></h2>
+                    <span className="section-label" style={{ justifyContent: 'center' }}>{t.label}</span>
+                    <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.title.replace('Kekarav Bavdhan', '<span class=\"gold-text\">Kekarav Bavdhan</span>') }} />
                     <p className="section-subtitle" style={{ margin: '0 auto var(--space-3xl)' }}>
-                        Kekarav's strategic location in <strong>Bavdhan Hills</strong> places you at the heart of West Pune's most desirable neighborhoods.
+                        {t.subtitle}
                     </p>
                 </div>
 
@@ -51,16 +53,6 @@ const LocalityGuide = () => {
                                 {loc.highlights.map((h, j) => (
                                     <span className="locality-highlight-tag" key={j}>{h}</span>
                                 ))}
-                            </div>
-                            <div className="locality-card-footer">
-                                <div className="locality-card-detail">
-                                    <span className="locality-detail-label">Price Range</span>
-                                    <span className="locality-detail-value">{loc.priceComparison}</span>
-                                </div>
-                                <div className="locality-card-detail">
-                                    <span className="locality-detail-label">Connectivity</span>
-                                    <span className="locality-detail-value">{loc.connectivity}</span>
-                                </div>
                             </div>
                         </article>
                     ))}

@@ -10,6 +10,7 @@ import MarketTicker from './components/MarketTicker'
 import VideoWalkthrough from './components/VideoWalkthrough'
 import StickyActionBar from './components/StickyActionBar'
 import TrustSignals from './components/TrustSignals'
+import { translations } from './data/translations'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -117,13 +118,19 @@ function App() {
     const [scrollProgress, setScrollProgress] = useState(0)
     const [activeSection, setActiveSection] = useState('hero')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [lang, setLang] = useState('en')
+    const t = translations[lang]
     const [formSubmitted, setFormSubmitted] = useState(false)
     const [formData, setFormData] = useState({ name: '', phone: '', email: '', plotSize: '', message: '' })
     const [openFaq, setOpenFaq] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 })
-    const navRef = useRef(null)
     const heroRef = useRef(null)
+
+    /* ─── Sync document language ─── */
+    useEffect(() => {
+        document.documentElement.lang = lang;
+    }, [lang]);
 
     /* ─── Animated Counters ─── */
     const acresCounter = useCounter(45, 2000)
@@ -226,35 +233,22 @@ function App() {
     }
     const scrollTo = (id) => { setMobileMenuOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
 
-    const faqData = [
-        { q: 'What is the price of NA plots at Kekarav Bavdhan?', a: 'NA bungalow plots at Kekarav Bavdhan start from ₹1.9 Crore onwards. Plot sizes range from 2,000 sq.ft to 7,000 sq.ft, with pricing varying based on plot area, location within the layout, and orientation. Contact us for the latest price list and available inventory.' },
-        { q: 'Is Kekarav Bavdhan within PMC limits?', a: 'Yes, Kekarav Bavdhan is strategically located within Pune Municipal Corporation (PMC) limits in Bavdhan Hills. This ensures access to superior PMC infrastructure, reliable water supply, civic amenities, and significantly higher property appreciation compared to PMRDA areas.' },
-        { q: 'What plot sizes are available at Kekarav?', a: 'Kekarav offers premium NA bungalow plots ranging from 2,000 sq.ft to 7,000 sq.ft. Popular configurations include 2,000 sq.ft compact villa plots (from ₹1.9 Cr), 3,500 sq.ft premium villa plots (from ₹2.5 Cr), and 5,000+ sq.ft ultra-premium estate plots (price on request).' },
-        { q: 'Who are the developers of Kekarav Bavdhan?', a: 'Kekarav Bavdhan is a prestigious joint venture by three industry leaders: TRU Realty (known for sustainable communities), Malpani Group (decades of real estate excellence in Pune), and Shrem Group (infrastructure and financial strength). Together they deliver unmatched quality.' },
-        { q: 'Can I build a custom villa on NA plots at Kekarav?', a: 'Absolutely! All plots at Kekarav come with clear NA (Non-Agricultural) titles and G+2 building permission with an optional basement. You have complete freedom to design your dream villa with your preferred architect, within the approved township guidelines.' },
-        { q: 'What is IGBC Platinum certification?', a: 'IGBC (Indian Green Building Council) Platinum is the highest level of green building certification in India. Kekarav Bavdhan\'s IGBC Platinum status ensures sustainable features like rainwater harvesting, solar infrastructure, Miyawaki forest, sewage treatment plants, and a significantly reduced carbon footprint.' },
-        { q: 'How far is Kekarav from Hinjewadi IT Park?', a: 'Kekarav Bavdhan is approximately 15 km from Hinjewadi IT Park via the Mumbai-Bengaluru Highway. Other key distances: Chandani Chowk (4.6 km), upcoming Metro station (3 km), Kothrud (6.8 km), Pashan (6.5 km), Baner (9.6 km), and Aundh (11 km).' },
-        { q: 'What amenities does Kekarav Bavdhan offer?', a: 'Kekarav offers 30+ world-class amenities including a premium clubhouse, infinity swimming pool, modern gymnasium, Miyawaki forest, biodiversity park, pet park, children\'s play area, jogging track, senior citizen park, convenience stores, 15m wide internal roads, solar street lights, STP, rainwater harvesting, and three-layer security with CCTV surveillance.' },
-        { q: 'Is Bavdhan a good investment in 2026?', a: 'Bavdhan is one of Pune\'s top-performing micro-markets in 2026. With upcoming Metro connectivity, the Pune Ring Road, proximity to IT corridors (Hinjewadi, Baner), and location within PMC limits, Bavdhan has seen 10-15% annual appreciation. NA plots in Bavdhan offer the highest ROI potential in west Pune.' },
-        { q: 'What makes Kekarav different from other plotting projects?', a: 'Kekarav stands apart with its massive 45+ acre township scale, IGBC Platinum green certification, prime PMC-limit location, 2,400+ planted trees supporting 60+ bird species, Miyawaki forest, three-layer security, cluster clubhouses, and the combined strength of three reputed developers — making it Pune\'s most premium NA plotting project.' },
-    ]
-
-    const marqueeItems = ['IGBC Platinum Certified', 'PMC Limit', 'NA Clear Title', '45+ Acres', '2,400+ Trees', 'G+2 Permission', '3-Layer Security', 'Miyawaki Forest', '₹1.9 Cr Onwards', 'Bavdhan Hills']
+    const marqueeItems = t.marquee
 
     const navItems = [
-        { id: 'overview', label: 'OVERVIEW' },
-        { id: 'why-bavdhan', label: 'WHY BAVDHAN' },
-        { id: 'amenities', label: 'AMENITIES' },
-        { id: 'plots', label: 'NA PLOTS' },
-        { id: 'locality-guide', label: 'NEIGHBORHOODS' },
-        { id: 'emi-calculator', label: 'ROI CALC' },
-        { id: 'testimonials', label: 'REVIEWS' },
-        { id: 'location', label: 'LOCATION' },
+        { id: 'overview', label: t.nav.overview },
+        { id: 'why-bavdhan', label: t.nav.why_bavdhan },
+        { id: 'amenities', label: t.nav.amenities },
+        { id: 'plots', label: t.nav.plots },
+        { id: 'locality-guide', label: t.nav.neighborhoods },
+        { id: 'emi-calculator', label: t.nav.roi_calc },
+        { id: 'testimonials', label: t.nav.reviews },
+        { id: 'location', label: t.nav.location },
     ]
 
     return (
         <>
-            <MarketTicker />
+            <MarketTicker t={t.ticker} />
 
             {/* ═══════════ NAVBAR ═══════════ */}
             <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
@@ -266,6 +260,11 @@ function App() {
                     </a>
 
                     <div className={`navbar-links ${mobileMenuOpen ? 'open' : ''}`}>
+                        <div className="lang-toggle">
+                            <button className={lang === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</button>
+                            <span className="lang-divider">|</span>
+                            <button className={lang === 'mr' ? 'active' : ''} onClick={() => setLang('mr')}>मराठी</button>
+                        </div>
                         {navItems.map(item => (
                             <a
                                 key={item.id}
@@ -277,7 +276,7 @@ function App() {
                             </a>
                         ))}
                         <button className="btn btn-primary navbar-cta" onClick={() => setIsModalOpen(true)}>
-                            BOOK SITE VISIT
+                            {t.nav.book_visit}
                         </button>
                     </div>
 
@@ -290,7 +289,7 @@ function App() {
             {/* ═══════════ HERO ═══════════ */}
             <header className="hero" id="hero" ref={heroRef}>
                 <div className="hero-bg">
-                    <img src="/images/hero.png" alt="Kekarav Bavdhan Premium NA Bungalow Plots Aerial View - Luxury Gated Community in Bavdhan Hills, Pune" loading="eager" />
+                    <img src="/images/hero.webp" alt="Kekarav Bavdhan Premium NA Bungalow Plots Aerial View - Luxury Gated Community in Bavdhan Hills, Pune" loading="eager" />
                 </div>
                 <div
                     className="hero-overlay"
@@ -301,26 +300,23 @@ function App() {
                 <FloatingParticles count={6} />
 
                 <div className="container hero-content">
+                    <span className="hero-label">{t.hero.label}</span>
                     <h1 className="hero-title">
-                        The Number One<br />
+                        {t.hero.title_start}<br />
                         <span className="gold">
-                            <Typewriter words={['NA Bungalow Plots in Pune', 'Kekarav Bungalow NA Plots', 'NA Bungalow Plots in Bavdhan']} speed={90} pause={3000} />
+                            <Typewriter words={t.hero.title_accent_words} speed={90} pause={3000} />
                         </span><br />
-                        Within PMC Limits
+                        {t.hero.title_end}
                     </h1>
 
-                    <p className="hero-desc">
-                        Craft your dream villa on expansive <strong>NA plots from 2,000 to 7,000 sq.ft</strong>, nestled in the
-                        serene <strong>Bavdhan Hills within PMC limits</strong>. A 45+ acre exclusive gated community with
-                        IGBC Platinum certification, starting at <strong>₹1.9 Crore onwards</strong>.
-                    </p>
+                    <p className="hero-desc" dangerouslySetInnerHTML={{ __html: t.hero.subtitle.replace('NA plots from 2,000 to 7,000 sq.ft', '<strong>NA plots from 2,000 to 7,000 sq.ft</strong>').replace('Bavdhan Hills within PMC limits', '<strong>Bavdhan Hills within PMC limits</strong>').replace('45+ acre', '45+ acre').replace('IGBC Platinum certification', 'IGBC Platinum certification').replace('₹1.9 Crore onwards', '<strong>₹1.9 Crore onwards</strong>') }} />
 
                     <div className="hero-actions">
                         <button className="btn btn-primary btn-ripple" onClick={() => setIsModalOpen(true)}>
-                            Book a Site Visit →
+                            {t.hero.cta_visit} →
                         </button>
                         <button className="btn btn-outline" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'rgba(255,255,255,0.9)' }} onClick={() => scrollTo('plots')}>
-                            View NA Plot Prices
+                            {t.hero.cta_view}
                         </button>
                     </div>
                 </div>
@@ -329,19 +325,19 @@ function App() {
                     <div className="container">
                         <div className="hero-stat" style={{ '--i': 0 }}>
                             <div className="hero-stat-number">₹1.9 Cr</div>
-                            <div className="hero-stat-label">Starting Price</div>
+                            <div className="hero-stat-label">{t.hero.stats.price}</div>
                         </div>
                         <div className="hero-stat" style={{ '--i': 1 }}>
                             <div className="hero-stat-number"><span className="counter-value">{acresCounter.count}</span>+</div>
-                            <div className="hero-stat-label">Acres Township</div>
+                            <div className="hero-stat-label">{t.hero.stats.acres}</div>
                         </div>
                         <div className="hero-stat" style={{ '--i': 2 }} ref={treesCounter.ref}>
                             <div className="hero-stat-number"><span className="counter-value">{treesCounter.count.toLocaleString()}</span>+</div>
-                            <div className="hero-stat-label">Trees Planted</div>
+                            <div className="hero-stat-label">{t.hero.stats.trees}</div>
                         </div>
                         <div className="hero-stat" style={{ '--i': 3 }}>
                             <div className="hero-stat-number">PMC</div>
-                            <div className="hero-stat-label">Within City Limits</div>
+                            <div className="hero-stat-label">{t.hero.stats.pmc}</div>
                         </div>
                     </div>
                 </div>
@@ -362,25 +358,20 @@ function App() {
                     <FloatingParticles count={3} />
                     <div className="overview-grid">
                         <div className="overview-image animate-on-scroll slide-left">
-                            <img src="/images/plots.png" alt="Premium NA Bungalow Plot with custom villa in Bavdhan Hills Pune" loading="lazy" />
+                            <img src="/images/plots.webp" alt="Premium NA Bungalow Plot with custom villa in Bavdhan Hills Pune" loading="lazy" />
                             <div className="overview-image-badge">45+ Acres</div>
                         </div>
 
                         <div className="overview-details animate-on-scroll slide-right">
                             <div>
-                                <span className="section-label">About Kekarav Bavdhan</span>
-                                <h2 className="section-title">The Number One <span className="gold-text">NA Bungalow Plots in Pune</span> Within PMC Limits</h2>
+                                <span className="section-label">{t.overview.label}</span>
+                                <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.overview.title.replace('NA Bungalow Plots in Pune', '<span class="gold-text">NA Bungalow Plots in Pune</span>') }} />
                             </div>
-                            <p className="overview-text"><strong>Kekarav Bungalow NA Plots</strong> offers the number one <strong>NA bungalow plots in Pune</strong> development, spread across <strong>45+ acres in the verdant Bavdhan Hills</strong>. As the city's only <strong>IGBC Platinum certified plotting project within PMC limits</strong>, Kekarav offers the rare privilege of designing your dream villa amidst a thriving ecosystem featuring <strong>60+ bird species</strong> and <strong>2,400+ flourishing trees</strong>.</p>
-                            <p className="overview-text">Every <strong>residential plot in Bavdhan</strong> comes with clear NA titles, <strong>G+2 building permission</strong> with optional basement, 15m & 9m wide internal roads, and world-class infrastructure — all protected by <strong>three-layer gated security</strong>.</p>
+                            <p className="overview-text" dangerouslySetInnerHTML={{ __html: t.overview.text1.replace('Kekarav Bungalow NA Plots', '<strong>Kekarav Bungalow NA Plots</strong>').replace('NA bungalow plots in Pune', '<strong>NA bungalow plots in Pune</strong>').replace('45+ acres', '<strong>45+ acres</strong>').replace('Bavdhan Hills', '<strong>Bavdhan Hills</strong>').replace('IGBC Platinum certified', '<strong>IGBC Platinum certified</strong>').replace('PMC limits', '<strong>PMC limits</strong>').replace('60+ bird species', '<strong>60+ bird species</strong>').replace('2,400+ flourishing trees', '<strong>2,400+ flourishing trees</strong>') }} />
+                            <p className="overview-text" dangerouslySetInnerHTML={{ __html: t.overview.text2.replace('residential plot in Bavdhan', '<strong>residential plot in Bavdhan</strong>').replace('clear NA titles', '<strong>clear NA titles</strong>').replace('G+2 building permission', '<strong>G+2 building permission</strong>').replace('three-layer gated security', '<strong>three-layer gated security</strong>') }} />
 
                             <div className="overview-features animate-on-scroll">
-                                {[
-                                    { icon: '🏡', title: 'NA Clear Title Plots', desc: 'Fully approved non-agricultural plots for custom villas' },
-                                    { icon: '🏗️', title: 'G+2 + Basement Permission', desc: 'Build up to 3 floors with optional basement' },
-                                    { icon: '🌿', title: 'IGBC Platinum Certified', desc: 'India\'s highest green building recognition' },
-                                    { icon: '🔒', title: '3-Layer Gated Security', desc: 'CCTV, manned guards & perimeter compound wall' },
-                                ].map((f, i) => (
+                                {t.overview.features.map((f, i) => (
                                     <div className="overview-feature" key={i} data-stagger style={{ transitionDelay: `${i * 0.1}s` }}>
                                         <div className="overview-feature-icon">{f.icon}</div>
                                         <div className="overview-feature-content">
@@ -399,26 +390,22 @@ function App() {
             <section className="section why-bavdhan" id="why-bavdhan" aria-label="Why Bavdhan">
                 <div className="container">
                     <div className="animate-on-scroll" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-                        <span className="section-label" style={{ justifyContent: 'center' }}>Location Intelligence</span>
-                        <h2 className="section-title">Why <span className="gold-text">NA Bungalow Plots in Bavdhan</span> Are Pune's Most Sought-After Address</h2>
-                        <p className="section-subtitle" style={{ margin: '0 auto var(--space-3xl)' }}>Bavdhan has emerged as the premium residential hub of west Pune, offering a perfect blend of natural beauty, urban connectivity, and investment potential.</p>
+                        <span className="section-label" style={{ justifyContent: 'center' }}>{t.why.label}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.why.title.replace('NA Bungalow Plots in Bavdhan', '<span class="gold-text">NA Bungalow Plots in Bavdhan</span>') }} />
+                        <p className="section-subtitle" style={{ margin: '0 auto var(--space-3xl)' }}>{t.why.subtitle}</p>
                     </div>
 
                     <div className="why-bavdhan-grid animate-on-scroll">
-                        {[
-                            { icon: '📈', title: '10-15% Annual Appreciation', text: 'Bavdhan\'s real estate has consistently delivered <strong>10-15% annual price appreciation</strong>, outperforming most Pune micro-markets. <strong>NA plots within PMC limits</strong> have shown even higher returns due to limited supply and premium demand.' },
-                            { icon: '🚇', title: 'Metro & Ring Road Connectivity', text: 'The upcoming <strong>Chandani Chowk Metro station</strong> (3 km) and <strong>Pune Ring Road</strong> will transform Bavdhan\'s connectivity, significantly boosting property values.' },
-                            { icon: '💼', title: 'Proximity to IT Corridors', text: 'Just <strong>15 km from Hinjewadi IT Park</strong> and <strong>9.6 km from Baner</strong>, Bavdhan is the ideal residential address for IT professionals seeking <strong>premium bungalow plots</strong>.' },
-                            { icon: '🏥', title: 'World-Class Infrastructure', text: 'Access to top hospitals like <strong>Chellaram Hospital (2 km)</strong>, reputed schools, and <strong>Oxford Golf Resort</strong>. Established <strong>PMC infrastructure</strong> ensures reliable civic amenities.' },
-                            { icon: '🏔️', title: 'Scenic Hill Location', text: 'The <strong>Bavdhan Hills</strong> offer elevated terrain, panoramic views, and natural greenery within city limits — the most desirable location for <strong>luxury villa plots in Pune</strong>.' },
-                            { icon: '🏛️', title: 'PMC Limit Advantage', text: 'Being within <strong>PMC limits</strong> ensures superior infrastructure, higher property valuation, and better resale potential — a key differentiator from PMRDA projects.' },
-                        ].map((card, i) => (
-                            <article className="why-card" key={i} data-stagger style={{ opacity: 0, transform: 'translateY(30px)', transition: `all 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s` }}>
-                                <div className="why-card-icon">{card.icon}</div>
-                                <h3>{card.title}</h3>
-                                <p dangerouslySetInnerHTML={{ __html: card.text }} />
-                            </article>
-                        ))}
+                        {t.why.cards.map((card, i) => {
+                            const icons = ['📈', '🚇', '💼', '🏥', '🏔️', '🏛️'];
+                            return (
+                                <article className="why-card" key={i} data-stagger style={{ opacity: 0, transform: 'translateY(30px)', transition: `all 0.6s cubic-bezier(0.4,0,0.2,1) ${i * 0.1}s` }}>
+                                    <div className="why-card-icon">{icons[i]}</div>
+                                    <h3>{card.title}</h3>
+                                    <p dangerouslySetInnerHTML={{ __html: card.text.replace(/(\d+-\d+%|15 km|9.6 km|3 km|PMC|NA plots|Chandani Chowk Metro station|Pune Ring Road|Hinjewadi IT Park|Baner|Chellaram Hospital|Oxford Golf Resort|Bavdhan Hills|luxury villa plots in Pune|PMC limits|PMRDA projects)/g, '<strong>$&</strong>') }} />
+                                </article>
+                            )
+                        })}
                     </div>
                 </div>
             </section>
@@ -430,22 +417,17 @@ function App() {
                 <div className="container">
                     <FloatingParticles count={4} />
                     <div className="animate-on-scroll">
-                        <span className="section-label">World-Class Amenities</span>
-                        <h2 className="section-title">30+ Premium Amenities at <span className="gold-text">Kekarav Bavdhan</span></h2>
-                        <p className="section-subtitle">From a state-of-the-art clubhouse and infinity pool to Miyawaki forests and biodiversity parks — every detail at this <strong>gated community in Bavdhan</strong> is designed for an elevated lifestyle.</p>
+                        <span className="section-label">{t.amenities.label}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.amenities.title.replace('Kekarav Bavdhan', '<span class="gold-text">Kekarav Bavdhan</span>') }} />
+                        <p className="section-subtitle" dangerouslySetInnerHTML={{ __html: t.amenities.subtitle.replace('gated community in Bavdhan', '<strong>gated community in Bavdhan</strong>') }} />
                     </div>
 
                     <div className="amenities-image-row animate-on-scroll" style={{ marginTop: '3rem' }}>
                         <div className="amenities-main-image">
-                            <img src="/images/amenities.png" alt="Kekarav Bavdhan Clubhouse and Infinity Swimming Pool" loading="lazy" />
+                            <img src="/images/amenities.webp" alt="Kekarav Bavdhan Clubhouse and Infinity Swimming Pool" loading="lazy" />
                         </div>
                         <div className="amenities-highlights">
-                            {[
-                                { icon: '🏊', title: 'Clubhouse & Infinity Pool', desc: 'Resort-style infinity pool with premium clubhouse' },
-                                { icon: '🌳', title: 'Miyawaki Forest', desc: 'Dense native forest for clean air & biodiversity' },
-                                { icon: '🐾', title: 'Pet Park', desc: 'Dedicated off-leash space for furry companions' },
-                                { icon: '☀️', title: 'Solar & Sustainable', desc: 'Solar street lights, STP, rainwater harvesting' },
-                            ].map((h, i) => (
+                            {t.amenities.highlights.map((h, i) => (
                                 <div className="amenity-highlight" key={i} data-stagger style={{ opacity: 0, transform: 'translateX(40px)', transition: `all 0.5s ease ${i * 0.15}s` }}>
                                     <div className="amenity-highlight-icon">{h.icon}</div>
                                     <div><h4>{h.title}</h4><p>{h.desc}</p></div>
@@ -455,14 +437,7 @@ function App() {
                     </div>
 
                     <div className="amenities-grid animate-on-scroll">
-                        {[
-                            { icon: '🏋️', name: 'Modern Gymnasium' }, { icon: '🎮', name: 'Indoor Games Room' },
-                            { icon: '🧒', name: "Children's Play Area" }, { icon: '🏃', name: 'Jogging & Walking Track' },
-                            { icon: '🌸', name: 'Landscape Garden' }, { icon: '👴', name: 'Senior Citizen Park' },
-                            { icon: '🛒', name: 'Convenience Store' }, { icon: '🌿', name: 'Biodiversity Park' },
-                            { icon: '💧', name: 'Rainwater Harvesting' }, { icon: '🛣️', name: '15m Wide Internal Roads' },
-                            { icon: '💡', name: '24/7 Electricity Supply' }, { icon: '🚰', name: 'STP & Sewage System' },
-                        ].map((amenity, i) => (
+                        {t.amenities.grid.map((amenity, i) => (
                             <div className="amenity-card" key={i} data-stagger style={{ opacity: 0, transform: 'scale(0.8)', transition: `all 0.4s cubic-bezier(0.175,0.885,0.32,1.275) ${i * 0.06}s` }}>
                                 <span className="amenity-card-icon">{amenity.icon}</span>
                                 <h4>{amenity.name}</h4>
@@ -476,29 +451,29 @@ function App() {
             <section className="section investment" id="investment" aria-label="Investment Guide">
                 <div className="container">
                     <div className="animate-on-scroll">
-                        <span className="section-label">Investment Intelligence</span>
-                        <h2 className="section-title">Why <span className="gold-text">NA Plots in Pune</span> Are the Smartest Investment in 2026</h2>
+                        <span className="section-label">{t.investment.label}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.investment.title.replace('NA Plots in Pune', '<span class="gold-text">NA Plots in Pune</span>') }} />
                     </div>
 
                     <div className="investment-grid animate-on-scroll">
                         <article className="investment-content">
-                            <p>The <strong>Pune real estate market in 2026</strong> presents an exceptional opportunity for investors, and <strong>NA bungalow plots</strong> offer the highest ROI potential among all property types.</p>
-                            <h3>📊 Superior ROI vs Apartments</h3>
-                            <p>While apartments appreciate at 5-8% annually, <strong>NA plots within PMC limits</strong> have consistently delivered <strong>12-18% annual appreciation</strong>. Bavdhan's premium positioning and limited land supply make it a high-demand micro-market.</p>
-                            <h3>🏗️ Infrastructure-Driven Growth</h3>
-                            <p>The upcoming <strong>Pune Metro Line to Chandani Chowk</strong>, the <strong>Pune Ring Road</strong>, and <strong>Mumbai-Bengaluru Expressway</strong> are set to transform Bavdhan's connectivity, driving property values significantly higher.</p>
-                            <h3>💰 Zero Maintenance, Maximum Flexibility</h3>
-                            <p>Unlike apartments, <strong>NA plots require zero maintenance costs</strong> until you build. Complete flexibility to design a custom villa, hold for appreciation, or develop at your convenience.</p>
-                            <h3>🏛️ PMC Limit Premium</h3>
-                            <p>Plots within <strong>PMC limits</strong> command a 20-30% premium over PMRDA areas due to superior infrastructure. Kekarav's PMC-limit location ensures you're investing in Pune's most valued jurisdiction.</p>
+                            <p dangerouslySetInnerHTML={{ __html: t.investment.text1.replace('Pune real estate market in 2026', '<strong>Pune real estate market in 2026</strong>').replace('NA bungalow plots', '<strong>NA bungalow plots</strong>') }} />
+                            <h3>{t.investment.heading1}</h3>
+                            <p dangerouslySetInnerHTML={{ __html: t.investment.text2.replace('NA plots within PMC limits', '<strong>NA plots within PMC limits</strong>').replace('12-18% annual appreciation', '<strong>12-18% annual appreciation</strong>') }} />
+                            <h3>{t.investment.heading2}</h3>
+                            <p dangerouslySetInnerHTML={{ __html: t.investment.text3.replace('Pune Metro Line to Chandani Chowk', '<strong>Pune Metro Line to Chandani Chowk</strong>').replace('Pune Ring Road', '<strong>Pune Ring Road</strong>').replace('Mumbai-Bengaluru Expressway', '<strong>Mumbai-Bengaluru Expressway</strong>') }} />
+                            <h3>{t.investment.heading3}</h3>
+                            <p dangerouslySetInnerHTML={{ __html: t.investment.text4.replace('NA plots require zero maintenance costs', '<strong>NA plots require zero maintenance costs</strong>') }} />
+                            <h3>{t.investment.heading4}</h3>
+                            <p dangerouslySetInnerHTML={{ __html: t.investment.text5.replace('PMC limits', '<strong>PMC limits</strong>') }} />
                         </article>
 
                         <div className="investment-stats" ref={investROI.ref}>
                             {[
-                                { val: `${investROI.count}%`, label: 'Annual ROI on NA Plots', ref: investROI.ref },
-                                { val: `${investPMC.count}%`, label: 'PMC Premium Over PMRDA', ref: investPMC.ref },
-                                { val: '₹0', label: 'Maintenance Until You Build' },
-                                { val: `${investSold.count}%+`, label: 'Already Sold Out', ref: investSold.ref },
+                                { val: `${investROI.count}%`, label: t.investment.stats.roi, ref: investROI.ref },
+                                { val: `${investPMC.count}%`, label: t.investment.stats.pmc, ref: investPMC.ref },
+                                { val: '₹0', label: t.investment.stats.maintenance },
+                                { val: `${investSold.count}%+`, label: t.investment.stats.sold, ref: investSold.ref },
                             ].map((s, i) => (
                                 <div className="investment-stat-card" key={i} data-stagger style={{ opacity: 0, transform: 'translateX(40px)', transition: `all 0.5s ease ${i * 0.15}s` }} ref={s.ref}>
                                     <div className="investment-stat-number">{s.val}</div>
@@ -626,11 +601,12 @@ function App() {
                 </div>
             </section>
 
-            <LocalityGuide />
-            <EmiCalculator />
-            <Testimonials />
-            <ComparisonMatrix />
-            <InfrastructureIndex />
+            <LocalityGuide t={t.locality} />
+            <EmiCalculator t={t.emi} />
+            <Testimonials t={t.testimonials} />
+            <ComparisonMatrix t={t.comparison} />
+            <InfrastructureIndex t={t.infra} data={infrastructureData} />
+            <TrustSignals t={t.trust} />
 
             {/* ═══════════ FAQ ═══════════ */}
             <section className="section faq" id="faq" aria-label="Frequently Asked Questions">
@@ -640,7 +616,7 @@ function App() {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "FAQPage",
-                            "mainEntity": faqData.map(faq => ({
+                            "mainEntity": t.faq.items.map(faq => ({
                                 "@type": "Question",
                                 "name": faq.q,
                                 "acceptedAnswer": {
@@ -653,11 +629,11 @@ function App() {
                 />
                 <div className="container">
                     <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
-                        <span className="section-label" style={{ justifyContent: 'center' }}>Frequently Asked Questions</span>
-                        <h2 className="section-title">Everything About <span className="gold-text">NA Plots at Kekarav Bavdhan</span></h2>
+                        <span className="section-label" style={{ justifyContent: 'center' }}>{t.faq.label}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.faq.title.replace('NA Plots at Kekarav Bavdhan', '<span class="gold-text">NA Plots at Kekarav Bavdhan</span>') }} />
                     </div>
                     <div className="faq-list animate-on-scroll">
-                        {faqData.map((faq, i) => (
+                        {t.faq.items.map((faq, i) => (
                             <div className={`faq-item ${openFaq === i ? 'open' : ''}`} key={i} data-stagger style={{ opacity: 0, transform: 'translateY(15px)', transition: `all 0.4s ease ${i * 0.06}s` }}>
                                 <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i}>
                                     <span>{faq.q}</span>
@@ -674,17 +650,13 @@ function App() {
             <section className="section developers" id="developers" aria-label="Developer Information">
                 <div className="container">
                     <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
-                        <span className="section-label" style={{ justifyContent: 'center' }}>Trusted Developers</span>
-                        <h2 className="section-title">Built by <span className="gold-text">Pune's Most Trusted</span> Real Estate Groups</h2>
+                        <span className="section-label" style={{ justifyContent: 'center' }}>{t.developers.label}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.developers.title.replace('Most Trusted Real Estate Groups', '<span class=\"gold-text\">Most Trusted Real Estate Groups</span>') }} />
                     </div>
                     <div className="developers-grid">
-                        {[
-                            { logo: 'TR', name: 'TRU Realty', desc: 'Pioneers in sustainable, nature-integrated communities. Innovative design philosophy and green building expertise.' },
-                            { logo: 'MG', name: 'Malpani Group', desc: 'One of Pune\'s most respected conglomerates with decades of experience delivering landmark projects across Maharashtra.' },
-                            { logo: 'SG', name: 'Shrem Group', desc: 'Diversified group with strong portfolio in infrastructure, bringing world-class construction quality and financial backing.' },
-                        ].map((dev, i) => (
+                        {t.developers.items.map((dev, i) => (
                             <div className="developer-card animate-on-scroll" key={i} data-stagger style={{ opacity: 0, transform: 'scale(0.9)', transition: `all 0.5s cubic-bezier(0.175,0.885,0.32,1.275) ${i * 0.15}s` }}>
-                                <div className="developer-card-logo">{dev.logo}</div>
+                                <div className="developer-card-logo">{dev.name.split(' ').map(n => n[0]).join('')}</div>
                                 <h3>{dev.name}</h3>
                                 <p>{dev.desc}</p>
                             </div>
@@ -698,46 +670,53 @@ function App() {
                 <div className="container">
                     <FloatingParticles count={3} />
                     <div className="animate-on-scroll">
-                        <span className="section-label">Book Your Site Visit</span>
-                        <h2 className="section-title">Enquire About <span className="gold-text">NA Plots at Kekarav Bavdhan</span></h2>
-                        <p className="section-subtitle">Schedule a private site visit to experience Pune's most premium <strong>NA bungalow plots in Bavdhan</strong> first-hand.</p>
+                        <span className="section-label">{t.contact.title}</span>
+                        <h2 className="section-title" dangerouslySetInnerHTML={{ __html: t.contact.title.replace('Expert Consultation', '<span class=\"gold-text\">Expert Consultation</span>') }} />
+                        <p className="section-subtitle">{t.contact.subtitle}</p>
                     </div>
                     <div className="contact-grid">
                         <div className="contact-info animate-on-scroll slide-left">
-                            {[
-                                { icon: '📍', title: 'Project Site Address', text: 'Survey 171, Bavdhan Hills, Pune 411021' },
-                                { icon: '📞', title: 'Kekarav Sales Office', text: '+91 7744009295 (10 AM – 7 PM)' },
-                                { icon: '🕐', title: 'Site Visit Timings', text: 'Open All Days — 10:00 AM to 6:00 PM' },
-                            ].map((c, i) => (
-                                <div className="contact-info-item" key={i} data-stagger style={{ opacity: 0, transform: 'translateX(-30px)', transition: `all 0.5s ease ${i * 0.12}s` }}>
-                                    <div className="contact-info-icon">{c.icon}</div>
-                                    <div><h4>{c.title}</h4><p>{c.text}</p></div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="contact-form-wrapper animate-on-scroll slide-right">
-                            {!formSubmitted ? (
-                                <form className="contact-form" onSubmit={handleFormSubmit}>
-                                    <div className="form-row">
-                                        <div className="form-group"><label htmlFor="name">Full Name</label><input type="text" id="name" name="name" placeholder="Your full name" value={formData.name} onChange={handleFormChange} required /></div>
-                                        <div className="form-group"><label htmlFor="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+91 7744009295" value={formData.phone} onChange={handleFormChange} required /></div>
+                            <div className="contact-form-container animate-on-scroll slide-left">
+                                {!formSubmitted ? (
+                                    <form className="contact-form" onSubmit={handleFormSubmit}>
+                                        <div className="form-row">
+                                            <div className="form-group">
+                                                <label htmlFor="name">{t.contact.name}</label>
+                                                <input type="text" id="name" name="name" placeholder={t.contact.name} value={formData.name} onChange={handleFormChange} required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="phone">{t.contact.phone}</label>
+                                                <input type="tel" id="phone" name="phone" placeholder="+91 7744009295" value={formData.phone} onChange={handleFormChange} required />
+                                            </div>
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="email">{t.contact.email}</label>
+                                            <input type="email" id="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleFormChange} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="plotSize">{t.contact.plot_size}</label>
+                                            <select id="plotSize" name="plotSize" value={formData.plotSize} onChange={handleFormChange}>
+                                                {t.contact.plot_options.map((opt, i) => (
+                                                    <option key={i} value={i === 0 ? "" : opt.split(' — ')[0]}>{opt}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="message">{t.contact.message}</label>
+                                            <textarea id="message" name="message" rows="4" placeholder={t.contact.message} value={formData.message} onChange={handleFormChange}></textarea>
+                                        </div>
+                                        <div className="form-submit">
+                                            <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '1rem' }}>{t.contact.submit}</button>
+                                        </div>
+                                    </form>
+                                ) : (
+                                    <div className="form-success">
+                                        <div className="form-success-icon">🎉</div>
+                                        <h3>{t.contact.success_title}</h3>
+                                        <p>{t.contact.success_msg}</p>
                                     </div>
-                                    <div className="form-group"><label htmlFor="email">Email Address</label><input type="email" id="email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleFormChange} required /></div>
-                                    <div className="form-group"><label htmlFor="plotSize">Preferred Plot Size</label>
-                                        <select id="plotSize" name="plotSize" value={formData.plotSize} onChange={handleFormChange}>
-                                            <option value="">Select NA plot size</option>
-                                            <option value="2000">2,000 sq.ft — Compact Villa Plot</option>
-                                            <option value="3500">3,500 sq.ft — Premium Villa Plot</option>
-                                            <option value="5000">5,000 sq.ft — Ultra-Premium Estate</option>
-                                            <option value="7000">7,000 sq.ft — Grand Estate</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group"><label htmlFor="message">Message (Optional)</label><textarea id="message" name="message" rows="3" placeholder="Tell us about your requirements..." value={formData.message} onChange={handleFormChange}></textarea></div>
-                                    <div className="form-submit"><button type="submit" className="btn btn-primary">Schedule Site Visit →</button></div>
-                                </form>
-                            ) : (
-                                <div className="form-success"><div className="form-success-icon">🎉</div><h3>Thank You for Your Interest!</h3><p>Our property consultant will reach out within 24 hours to schedule your exclusive site visit.</p></div>
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -747,7 +726,7 @@ function App() {
 
             <SeoKeywordsMatrix />
 
-            <TrustSignals />
+            <TrustSignals t={t.trust} />
 
             {/* ═══════════ FOOTER ═══════════ */}
             <footer className="footer" role="contentinfo">
@@ -755,15 +734,53 @@ function App() {
                     <div className="footer-grid">
                         <div className="footer-brand">
                             <div className="footer-brand-text">KEKAR<span className="gold-text">AV</span></div>
-                            <p className="footer-brand-desc">The number one <strong>NA Bungalow Plots in Pune</strong> located in Bavdhan within PMC limits. IGBC Platinum Certified. Starting ₹1.9 Crore.</p>
-                            <div className="footer-certifications"><span className="footer-cert">IGBC Platinum</span><span className="footer-cert">PMC Approved</span><span className="footer-cert">NA Title</span></div>
+                            <p className="footer-brand-desc" dangerouslySetInnerHTML={{ __html: t.footer.brand.replace('NA Bungalow Plots in Pune', '<strong>NA Bungalow Plots in Pune</strong>').replace('Bavdhan', '<strong>Bavdhan</strong>').replace('PMC limits', '<strong>PMC limits</strong>') }} />
+                            <div className="footer-certifications">
+                                <span className="footer-cert">{t.footer.cert1}</span>
+                                <span className="footer-cert">{t.footer.cert2}</span>
+                                <span className="footer-cert">{t.footer.cert3}</span>
+                            </div>
                         </div>
-                        <div className="footer-column"><h4>Quick Links</h4><ul><li><a href="#overview" onClick={(e) => { e.preventDefault(); scrollTo('overview') }}>About Kekarav</a></li><li><a href="#why-bavdhan" onClick={(e) => { e.preventDefault(); scrollTo('why-bavdhan') }}>Why Bavdhan</a></li><li><a href="#amenities" onClick={(e) => { e.preventDefault(); scrollTo('amenities') }}>Amenities</a></li><li><a href="#plots" onClick={(e) => { e.preventDefault(); scrollTo('plots') }}>NA Plot Prices</a></li><li><a href="#investment" onClick={(e) => { e.preventDefault(); scrollTo('investment') }}>Investment Guide</a></li></ul></div>
-                        <div className="footer-column"><h4>Resources</h4><ul><li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq') }}>FAQ</a></li><li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison') }}>Comparison</a></li><li><a href="#location" onClick={(e) => { e.preventDefault(); scrollTo('location') }}>Location Map</a></li><li><a href="#developers" onClick={(e) => { e.preventDefault(); scrollTo('developers') }}>Developers</a></li><li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact') }}>Contact Sales</a></li></ul></div>
-                        <div className="footer-column"><h4>Project Office</h4><ul><li><a href="#">Survey 171, Bavdhan Hills</a></li><li><a href="#">Pune, Maharashtra 411021</a></li><li><a href="tel:+917744009295">+91 7744 009 295</a></li></ul></div>
+                        <div className="footer-column">
+                            <h4>{t.footer.links_title1}</h4>
+                            <ul>
+                                <li><a href="#overview" onClick={(e) => { e.preventDefault(); scrollTo('overview') }}>{t.footer.link_overview}</a></li>
+                                <li><a href="#why-bavdhan" onClick={(e) => { e.preventDefault(); scrollTo('why-bavdhan') }}>{t.footer.link_why}</a></li>
+                                <li><a href="#amenities" onClick={(e) => { e.preventDefault(); scrollTo('amenities') }}>{t.footer.link_amenities}</a></li>
+                                <li><a href="#plots" onClick={(e) => { e.preventDefault(); scrollTo('plots') }}>{t.footer.link_plots}</a></li>
+                                <li><a href="#investment" onClick={(e) => { e.preventDefault(); scrollTo('investment') }}>{t.footer.link_investment}</a></li>
+                            </ul>
+                        </div>
+                        <div className="footer-column">
+                            <h4>{t.footer.links_title2}</h4>
+                            <ul>
+                                <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq') }}>{t.footer.link_faq}</a></li>
+                                <li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison') }}>{t.footer.link_comparison}</a></li>
+                                <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollTo('location') }}>{t.footer.link_location}</a></li>
+                                <li><a href="#developers" onClick={(e) => { e.preventDefault(); scrollTo('developers') }}>{t.footer.link_developers}</a></li>
+                                <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact') }}>{t.footer.link_contact}</a></li>
+                            </ul>
+                        </div>
+                        <div className="footer-column">
+                            <h4>{t.footer.links_title3}</h4>
+                            <ul>
+                                <li><a href="#">{t.footer.address_l1}</a></li>
+                                <li><a href="#">{t.footer.address_l2}</a></li>
+                                <li><a href="tel:+917744009295">+91 7744 009 295</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div className="seo-footer animate-on-scroll"><h4>Kekarav Bungalow NA Plots — Number One NA Bungalow Plots in Pune</h4><p><a href="#plots">NA Bungalow Plots in Bavdhan, Pune</a> | <a href="#plots">Kekarav Bungalow NA Plots</a> | <a href="#plots">Number One NA Bungalow Plots in Pune</a> | <a href="#plots">Villa Plots in Pune</a> | <a href="#location">Bungalow Plots near Hinjewadi</a> | <a href="#investment">NA Plots Investment 2026</a> | <a href="#faq">IGBC Certified Plots</a> | <a href="#comparison">Best Plotting Projects Pune</a></p><p className="seo-footer-areas"><strong>Nearby:</strong> Kothrud | Pashan | Baner | Aundh | Hinjewadi | Chandani Chowk | Warje | Sus | Mulshi | Pirangut | Wakad</p></div>
-                    <div className="footer-bottom"><p>© 2026 Kekarav Bavdhan. All rights reserved. | By TRU Realty, Malpani Group & Shrem Group</p><p className="footer-disclaimer">Disclaimer: Content is for informational purposes. Prices subject to change. All images are artist's impressions.</p></div>
+                    <div className="seo-footer animate-on-scroll">
+                        <h4>Kekarav Bungalow NA Plots — Number One NA Bungalow Plots in Pune</h4>
+                        <p>
+                            <a href="#plots">NA Bungalow Plots in Bavdhan, Pune</a> | <a href="#plots">Kekarav Bungalow NA Plots</a> | <a href="#plots">Number One NA Bungalow Plots in Pune</a> | <a href="#plots">Villa Plots in Pune</a> | <a href="#location">Bungalow Plots near Hinjewadi</a> | <a href="#investment">NA Plots Investment 2026</a> | <a href="#faq">IGBC Certified Plots</a> | <a href="#comparison">Best Plotting Projects Pune</a>
+                        </p>
+                        <p className="seo-footer-areas"><strong>{t.footer.nearby}</strong> Kothrud | Pashan | Baner | Aundh | Hinjewadi | Chandani Chowk | Warje | Sus | Mulshi | Pirangut | Wakad</p>
+                    </div>
+                    <div className="footer-bottom">
+                        <p>{t.footer.copyright}</p>
+                        <p className="footer-disclaimer">{t.footer.disclaimer}</p>
+                    </div>
                 </div>
             </footer>
 
@@ -779,40 +796,38 @@ function App() {
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                     <button className="modal-close" onClick={() => setIsModalOpen(false)} aria-label="Close modal">×</button>
                     <div className="modal-header">
-                        <h2>Personal Site Visit</h2>
-                        <p>Experience the number one NA plots in Pune first-hand.</p>
+                        <h2>{t.contact.title}</h2>
+                        <p>{t.contact.subtitle}</p>
                     </div>
                     {!formSubmitted ? (
                         <form className="contact-form" onSubmit={handleFormSubmit}>
                             <div className="form-row">
-                                <div className="form-group"><label htmlFor="modal-name">Full Name</label><input type="text" id="modal-name" name="name" placeholder="Your full name" value={formData.name} onChange={handleFormChange} required /></div>
-                                <div className="form-group"><label htmlFor="modal-phone">Phone Number</label><input type="tel" id="modal-phone" name="phone" placeholder="+91 7744009295" value={formData.phone} onChange={handleFormChange} required /></div>
+                                <div className="form-group"><label htmlFor="modal-name">{t.contact.name}</label><input type="text" id="modal-name" name="name" placeholder={t.contact.name} value={formData.name} onChange={handleFormChange} required /></div>
+                                <div className="form-group"><label htmlFor="modal-phone">{t.contact.phone}</label><input type="tel" id="modal-phone" name="phone" placeholder="+91 7744009295" value={formData.phone} onChange={handleFormChange} required /></div>
                             </div>
-                            <div className="form-group"><label htmlFor="modal-email">Email Address</label><input type="email" id="modal-email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleFormChange} required /></div>
-                            <div className="form-group"><label htmlFor="modal-plotSize">Preferred Plot Size</label>
+                            <div className="form-group"><label htmlFor="modal-email">{t.contact.email}</label><input type="email" id="modal-email" name="email" placeholder="your@email.com" value={formData.email} onChange={handleFormChange} required /></div>
+                            <div className="form-group"><label htmlFor="modal-plotSize">{t.contact.plot_size}</label>
                                 <select id="modal-plotSize" name="plotSize" value={formData.plotSize} onChange={handleFormChange}>
-                                    <option value="">Select NA plot size</option>
-                                    <option value="2000">2,000 sq.ft — Compact Villa Plot</option>
-                                    <option value="3500">3,500 sq.ft — Premium Villa Plot</option>
-                                    <option value="5000">5,000 sq.ft — Ultra-Premium Estate</option>
-                                    <option value="7000">7,000 sq.ft — Grand Estate</option>
+                                    {t.contact.plot_options.map((opt, i) => (
+                                        <option key={i} value={i === 0 ? "" : opt.split(' — ')[0]}>{opt}</option>
+                                    ))}
                                 </select>
                             </div>
-                            <div className="form-group"><label htmlFor="modal-message">Message (Optional)</label><textarea id="modal-message" name="message" rows="3" placeholder="Tell us about your requirements..." value={formData.message} onChange={handleFormChange}></textarea></div>
-                            <div className="form-submit"><button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Request Site Visit →</button></div>
+                            <div className="form-group"><label htmlFor="modal-message">{t.contact.message}</label><textarea id="modal-message" name="message" rows="3" placeholder={t.contact.message} value={formData.message} onChange={handleFormChange}></textarea></div>
+                            <div className="form-submit"><button type="submit" className="btn btn-primary" style={{ width: '100%' }}>{t.contact.submit}</button></div>
                         </form>
                     ) : (
                         <div className="form-success">
                             <div className="form-success-icon">🎉</div>
-                            <h3>Enquiry Sent!</h3>
-                            <p>We will contact you shortly to confirm your visit.</p>
+                            <h3>{t.contact.success_title}</h3>
+                            <p>{t.contact.success_msg}</p>
                         </div>
                     )}
                 </div>
             </div>
 
             {/* Sticky Lead Gen Bar for Mobile/Desktop */}
-            <StickyActionBar onBookVisit={() => setIsModalOpen(true)} />
+            <StickyActionBar t={t.sticky} onBookVisit={() => setIsModalOpen(true)} />
         </>
     )
 }
