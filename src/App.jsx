@@ -6,6 +6,9 @@ import EmiCalculator from './components/EmiCalculator'
 import Testimonials from './components/Testimonials'
 import ComparisonMatrix from './components/ComparisonMatrix'
 import InfrastructureIndex from './components/InfrastructureIndex'
+import MarketTicker from './components/MarketTicker'
+import VideoWalkthrough from './components/VideoWalkthrough'
+import StickyActionBar from './components/StickyActionBar'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -250,6 +253,8 @@ function App() {
 
     return (
         <>
+            <MarketTicker />
+
             {/* ═══════════ NAVBAR ═══════════ */}
             <nav ref={navRef} className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
                 <div className="container">
@@ -416,6 +421,8 @@ function App() {
                     </div>
                 </div>
             </section>
+
+            <VideoWalkthrough />
 
             {/* ═══════════ AMENITIES ═══════════ */}
             <section className="section amenities" id="amenities" aria-label="Amenities">
@@ -800,6 +807,9 @@ function App() {
                     )}
                 </div>
             </div>
+
+            {/* Sticky Lead Gen Bar for Mobile/Desktop */}
+            <StickyActionBar onBookVisit={() => setIsModalOpen(true)} />
         </>
     )
 }
