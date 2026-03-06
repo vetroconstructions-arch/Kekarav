@@ -4,6 +4,8 @@ import SeoBlogSection from './components/SeoBlogSection'
 import LocalityGuide from './components/LocalityGuide'
 import EmiCalculator from './components/EmiCalculator'
 import Testimonials from './components/Testimonials'
+import ComparisonMatrix from './components/ComparisonMatrix'
+import InfrastructureIndex from './components/InfrastructureIndex'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -619,9 +621,28 @@ function App() {
             <LocalityGuide />
             <EmiCalculator />
             <Testimonials />
+            <ComparisonMatrix />
+            <InfrastructureIndex />
 
             {/* ═══════════ FAQ ═══════════ */}
             <section className="section faq" id="faq" aria-label="Frequently Asked Questions">
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": faqData.map(faq => ({
+                                "@type": "Question",
+                                "name": faq.q,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.a
+                                }
+                            }))
+                        })
+                    }}
+                />
                 <div className="container">
                     <div className="animate-on-scroll" style={{ textAlign: 'center' }}>
                         <span className="section-label" style={{ justifyContent: 'center' }}>Frequently Asked Questions</span>
