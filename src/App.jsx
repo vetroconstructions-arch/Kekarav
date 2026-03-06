@@ -9,6 +9,7 @@ import InfrastructureIndex from './components/InfrastructureIndex'
 import MarketTicker from './components/MarketTicker'
 import VideoWalkthrough from './components/VideoWalkthrough'
 import StickyActionBar from './components/StickyActionBar'
+import TrustSignals from './components/TrustSignals'
 
 /* ─── Animated Counter Hook ─── */
 function useCounter(end, duration = 2000, startOnView = true) {
@@ -745,6 +746,8 @@ function App() {
             <SeoBlogSection />
 
             <SeoKeywordsMatrix />
+
+            <TrustSignals />
 
             {/* ═══════════ FOOTER ═══════════ */}
             <footer className="footer" role="contentinfo">

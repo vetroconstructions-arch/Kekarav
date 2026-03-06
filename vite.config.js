@@ -6,5 +6,20 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+          if (id.includes('src/data')) {
+            return 'data';
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
   }
 })
