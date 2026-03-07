@@ -126,6 +126,7 @@ function App() {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [mousePos, setMousePos] = useState({ x: 50, y: 50 })
     const heroRef = useRef(null)
+    const navRef = useRef(null)
 
     /* ─── Sync document language ─── */
     useEffect(() => {
