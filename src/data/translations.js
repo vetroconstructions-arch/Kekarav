@@ -12,11 +12,11 @@ export const translations = {
             book_visit: "BOOK SITE VISIT"
         },
         hero: {
-            label: "Premium NA Bungalow Plots in Bavdhan, Pune",
+            label: "Kekarav Bavdhan | Premium NA Bungalow Plots in Pune",
             title_start: "The Number One",
-            title_accent_words: ['NA Bungalow Plots in Pune', 'Kekarav Bungalow NA Plots', 'NA Bungalow Plots in Bavdhan'],
+            title_accent_words: ['NA Bungalow Plots in Pune', 'Kekarav NA Plots', 'NA Plots in Bavdhan'],
             title_end: "Within PMC Limits",
-            subtitle: "Craft your dream villa on expansive NA plots from 2,000 to 7,000 sq.ft, nestled in the serene Bavdhan Hills within PMC limits. A 45+ acre exclusive gated community with IGBC Platinum certification, starting at ₹1.9 Crore onwards.",
+            subtitle: "Craft your dream villa on expansive NA bungalow plots in Pune, ranging from 2,000 to 7,000 sq.ft. Nestled in the serene Bavdhan Hills within PMC limits, Kekarav plots offer a 45+ acre exclusive gated community with IGBC Platinum certification, starting at ₹1.9 Crore onwards.",
             sticky: {
                 visit: "Book Site Visit",
                 whatsapp: "WhatsApp Chat"
@@ -125,11 +125,11 @@ export const translations = {
         why: {
             label: "Location Intelligence",
             title: "Why NA Bungalow Plots in Bavdhan Are Pune's Most Sought-After Address",
-            subtitle: "Bavdhan has emerged as the premium residential hub of west Pune, offering a perfect blend of natural beauty, urban connectivity, and investment potential.",
+            subtitle: "Bavdhan has emerged as the premium residential hub of west Pune. Finding NA plots in Bavdhan, or NA plots in Kothrud and Chandani Chowk, offers a perfect blend of natural beauty, urban connectivity, and high investment potential.",
             cards: [
-                { title: "10-15% Annual Appreciation", text: "Bavdhan's real estate has consistently delivered 10-15% annual price appreciation, outperforming most Pune micro-markets." },
-                { title: "Metro & Ring Road Connectivity", text: "The upcoming Chandani Chowk Metro station (3 km) and Pune Ring Road will transform Bavdhan's connectivity." },
-                { title: "Proximity to IT Corridors", text: "Just 15 km from Hinjewadi IT Park and 9.6 km from Baner, Bavdhan is the ideal residential address." },
+                { title: "10-15% Annual Appreciation", text: "Bavdhan's real estate has consistently delivered 10-15% annual price appreciation. Kekarav bavdhan outperforms most Pune micro-markets." },
+                { title: "Metro & Ring Road Connectivity", text: "The upcoming Chandani Chowk Metro station (3 km) and Pune Ring Road will transform Bavdhan's connectivity, making NA plots in Chandani Chowk highly desirable." },
+                { title: "Proximity to IT Corridors", text: "Just 15 km from Hinjewadi IT Park and minutes from Kothrud, NA plots in pune west are the ideal residential address." },
                 { title: "World-Class Infrastructure", text: "Access to top hospitals like Chellaram Hospital (2 km), reputed schools, and Oxford Golf Resort." },
                 { title: "Scenic Hill Location", text: "The Bavdhan Hills offer elevated terrain, panoramic views, and natural greenery within city limits." },
                 { title: "PMC Limit Advantage", text: "Being within PMC limits ensures superior infrastructure, higher property valuation, and better resale potential." }
@@ -156,10 +156,10 @@ export const translations = {
         },
         investment: {
             label: "Investment Intelligence",
-            title: "Why NA Plots in Pune Are the Smartest Investment in 2026",
-            text1: "The Pune real estate market in 2026 presents an exceptional opportunity for investors, and NA bungalow plots offer the highest ROI potential among all property types.",
+            title: "Why Kekarav NA Plots Are the Smartest Investment in 2026",
+            text1: "The Pune real estate market in 2026 presents an exceptional opportunity for investors, and NA bungalow plots in Pune offer the highest ROI potential among all property types.",
             heading1: "📊 Superior ROI vs Apartments",
-            text2: "While apartments appreciate at 5-8% annually, NA plots within PMC limits have consistently delivered 12-18% annual appreciation. Bavdhan's premium positioning and limited land supply make it a high-demand micro-market.",
+            text2: "While apartments appreciate at 5-8% annually, NA plots in pune within PMC limits have consistently delivered 12-18% annual appreciation. Bavdhan's premium positioning and limited land supply make it a high-demand micro-market.",
             heading2: "🏗️ Infrastructure-Driven Growth",
             text3: "The upcoming Pune Metro Line to Chandani Chowk, Pune Ring Road, and Mumbai-Bengaluru Expressway will significantly boost Bavdhan's connectivity and property prices.",
             heading3: "💰 Zero Maintenance, Maximum Flexibility",
@@ -220,10 +220,10 @@ export const translations = {
             links_title1: "Quick Links",
             links_title2: "Resources",
             links_title3: "Project Office",
-            link_overview: "About Kekarav",
-            link_why: "Why Bavdhan",
-            link_amenities: "Amenities",
-            link_plots: "NA Plot Prices",
+            link_overview: "Kekarav NA Plots",
+            link_why: "NA Plots in Bavdhan",
+            link_amenities: "NA Plots in Kothrud",
+            link_plots: "NA Plots in Chandani Chowk",
             link_investment: "Investment Guide",
             link_faq: "FAQ",
             link_comparison: "Comparison",
