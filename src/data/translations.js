@@ -160,6 +160,8 @@ export const translations = {
             text1: "The Pune real estate market in 2026 presents an exceptional opportunity for investors, and NA bungalow plots offer the highest ROI potential among all property types.",
             heading1: "📊 Superior ROI vs Apartments",
             text2: "While apartments appreciate at 5-8% annually, NA plots within PMC limits have consistently delivered 12-18% annual appreciation. Bavdhan's premium positioning and limited land supply make it a high-demand micro-market.",
+            heading2: "🏗️ Infrastructure-Driven Growth",
+            text3: "The upcoming Pune Metro Line to Chandani Chowk, Pune Ring Road, and Mumbai-Bengaluru Expressway will significantly boost Bavdhan's connectivity and property prices.",
             heading3: "💰 Zero Maintenance, Maximum Flexibility",
             text4: "Unlike apartments, NA plots require zero maintenance costs until you build. Complete flexibility to design a custom villa, hold for appreciation, or develop at your convenience.",
             heading4: "🏛️ PMC Limit Premium",
