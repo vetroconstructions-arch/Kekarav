@@ -606,7 +606,7 @@ function App() {
             <EmiCalculator t={t.emi} />
             <Testimonials t={t.testimonials} />
             <ComparisonMatrix t={t.comparison} />
-            <InfrastructureIndex t={t.infra} data={infrastructureData} />
+            <InfrastructureIndex t={t.infra} />
             <TrustSignals t={t.trust} />
 
             {/* ═══════════ FAQ ═══════════ */}
