@@ -1,98 +1,98 @@
 [
     {
-        "name": "Kothrud",
-        "distance": "6.8 km",
-        "description": "One of Pune's most established premium residential areas with excellent social infrastructure, top schools like Bhave Primary and MIT, and direct connectivity to Bavdhan via the Paud Road corridor.",
-        "highlights": [
-            "Premium residential hub",
-            "Top schools & colleges",
-            "6.8 km from Kekarav"
-        ],
-        "priceComparison": "₹12,000-18,000/sq.ft (apartments) vs Kekarav NA plots offering higher ROI",
-        "connectivity": "Direct via Paud Road, 15-20 min drive"
-    },
-    {
-        "name": "Baner",
-        "distance": "9.6 km",
-        "description": "Pune's thriving IT corridor with premium commercial and residential developments. Home to major tech companies, upscale restaurants, and vibrant nightlife, making it ideal for young professionals.",
-        "highlights": [
-            "IT corridor hub",
-            "Premium dining & nightlife",
-            "9.6 km from Kekarav"
-        ],
-        "priceComparison": "₹10,000-16,000/sq.ft (apartments) — limited plot availability",
-        "connectivity": "Via Mumbai-Bengaluru Highway, 20-25 min drive"
-    },
-    {
-        "name": "Pashan",
-        "distance": "6.5 km",
-        "description": "A serene, green locality known for its proximity to IUCAA, NCL, and Pune University. Pashan offers a perfect blend of academic excellence and residential tranquility near Bavdhan Hills.",
-        "highlights": [
-            "Academic hub (IUCAA, NCL)",
-            "Green & peaceful",
-            "6.5 km from Kekarav"
-        ],
-        "priceComparison": "₹9,000-14,000/sq.ft (apartments) — very few plot options",
-        "connectivity": "Via Pashan-Sus Road, 12-15 min drive"
-    },
-    {
-        "name": "Hinjewadi",
-        "distance": "15 km",
-        "description": "Pune's largest IT hub housing Infosys, TCS, Wipro, and 200+ tech companies. Hinjewadi IT Park employs over 500,000 professionals, creating massive residential demand in nearby Bavdhan.",
-        "highlights": [
-            "500,000+ IT professionals",
-            "India's top IT park",
-            "15 km from Kekarav"
-        ],
-        "priceComparison": "₹7,000-12,000/sq.ft (apartments) — limited premium options",
-        "connectivity": "Via Mumbai-Bengaluru Highway, 25-30 min drive"
-    },
-    {
-        "name": "Aundh",
-        "distance": "11 km",
-        "description": "A well-developed residential and commercial area known for Aundh IT Park, Parihar Chowk, and proximity to Pune-Mumbai Expressway. Strong rental market driven by IT professionals.",
-        "highlights": [
-            "Established commercial hub",
-            "Strong rental yields",
-            "11 km from Kekarav"
-        ],
-        "priceComparison": "₹11,000-17,000/sq.ft (apartments) — virtually no plots available",
-        "connectivity": "Via University Road & Aundh-Baner Link, 20-25 min drive"
-    },
-    {
-        "name": "Chandani Chowk",
+        "name": "Bavdhan & Chandani Chowk",
         "distance": "4.6 km",
-        "description": "The major connectivity junction of West Pune. The upcoming Chandani Chowk Metro station and flyover have transformed this into a key infrastructure node, directly boosting Bavdhan's accessibility.",
+        "description": "The immediate vicinity offering ultra-premium infrastructure. NA plots in Bavdhan and Chandani Chowk represent the pinnacle of West Pune real estate.",
         "highlights": [
-            "Upcoming Metro station",
-            "Major junction flyover",
-            "4.6 km from Kekarav"
+            "Upcoming Metro Station",
+            "Chellaram Hospital",
+            "Oxford Golf Resort"
         ],
         "priceComparison": "Commercial zone — not directly comparable, but drives Bavdhan premium",
         "connectivity": "Direct access, 8-10 min drive"
     },
     {
-        "name": "Wakad",
-        "distance": "12 km",
-        "description": "A fast-developing residential hub between Hinjewadi and Pune city. Known for affordable housing options and proximity to IT parks, Wakad has seen rapid infrastructure growth.",
+        "name": "Kothrud & Karve Nagar",
+        "distance": "6.8 km",
+        "description": "The cultural heart of Pune. Residents looking for premium villa plots in Pune often choose Bavdhan for its proximity to Kothrud's established ecosystem.",
         "highlights": [
-            "Affordable residential hub",
-            "Close to Hinjewadi",
-            "12 km from Kekarav"
+            "MIT College",
+            "City Pride",
+            "Vanaz Metro Station"
         ],
-        "priceComparison": "₹7,000-11,000/sq.ft (apartments) — limited premium offerings",
-        "connectivity": "Via Mumbai-Bengaluru Highway, 22-28 min drive"
+        "priceComparison": "₹12,000-18,000/sq.ft (apartments) vs Kekarav NA plots offering higher ROI",
+        "connectivity": "Direct via Paud Road, 15-20 min drive"
     },
     {
-        "name": "Sus-Mulshi",
-        "distance": "5 km",
-        "description": "The emerging western frontier of Pune, known for scenic hillscapes, weekend getaway spots, and growing residential projects. Sus Road connects directly to Bavdhan, offering nature-adjacent living.",
+        "name": "Hinjewadi & Wakad (PCMC)",
+        "distance": "12-15 km",
+        "description": "Pune's largest IT corridor. Tech professionals seeking NA bungalow plots near Hinjewadi and PCMC find Kekarav the perfect peaceful retreat within PMC limits.",
         "highlights": [
-            "Scenic hillscapes",
-            "Emerging growth corridor",
-            "5 km from Kekarav"
+            "Rajiv Gandhi IT Park",
+            "Ruby Hall Clinic",
+            "Phoenix Mall of the Millennium"
         ],
-        "priceComparison": "₹5,000-9,000/sq.ft — mostly farmhouse/agricultural land",
-        "connectivity": "Via Sus Road, 10-12 min drive"
+        "priceComparison": "₹7,000-12,000/sq.ft (apartments) — limited premium plotting options",
+        "connectivity": "Via Mumbai-Bengaluru Highway, 20-30 min drive"
+    },
+    {
+        "name": "Baner & Balewadi",
+        "distance": "9.6 km",
+        "description": "The high-street capital of West Pune. Fast connectivity makes Kekarav the ideal choice for those searching for premium plots near Baner or Balewadi High Street.",
+        "highlights": [
+            "Balewadi High Street",
+            "Jupiter Hospital",
+            "Pune Metro Line 3"
+        ],
+        "priceComparison": "₹10,000-16,000/sq.ft (apartments) — limited plot availability",
+        "connectivity": "Via Mumbai-Bengaluru Highway, 20-25 min drive"
+    },
+    {
+        "name": "Deccan & Shivaji Nagar",
+        "distance": "12 km",
+        "description": "Central Pune's historic and commercial hub. Easy access via Kothrud makes owning a bungalow plot in Bavdhan highly convenient for central city business owners.",
+        "highlights": [
+            "FC Road",
+            "Pune University",
+            "Sancheti Hospital"
+        ],
+        "priceComparison": "High density apartment zones, driving demand for western plots",
+        "connectivity": "Via Kothrud/Paud Road, 25-30 min drive"
+    },
+    {
+        "name": "Aundh & Pashan",
+        "distance": "6.5-11 km",
+        "description": "Established affluent neighborhoods. Bavdhan offers larger, greener NA plot alternatives compared to the saturated and expensive Aundh real estate market.",
+        "highlights": [
+            "Westend Mall",
+            "NCL",
+            "Pashan Lake"
+        ],
+        "priceComparison": "₹11,000-17,000/sq.ft (apartments) — virtually no plots available",
+        "connectivity": "Via Pashan-Sus Road, 15-25 min drive"
+    },
+    {
+        "name": "Kharadi & Viman Nagar (East Pune)",
+        "distance": "22-25 km",
+        "description": "The eastern IT and retail hubs. Connected efficiently via the PMC limits infrastructure, investors from East Pune prefer the serene hillscapes of West Pune plots.",
+        "highlights": [
+            "EON IT Park",
+            "Phoenix Marketcity",
+            "Pune Airport"
+        ],
+        "priceComparison": "High IT demand pushing apartment rates, making land investment lucrative",
+        "connectivity": "Via Pune city roads, 50-60 min drive"
+    },
+    {
+        "name": "Pimpri Chinchwad (PCMC Core)",
+        "distance": "18-20 km",
+        "description": "The industrial twin city. Investors from Ravet, Tathawade, and PCMC searching for IGBC Platinum premium plots prefer Kekarav's pure air and PMC limit advantages.",
+        "highlights": [
+            "Auto Cluster",
+            "Aditya Birla Hospital",
+            "Elpro City Square"
+        ],
+        "priceComparison": "PMRDA/PCMC areas trade at a discount to premium PMC limits",
+        "connectivity": "Via bypass highway, 30-40 min drive"
     }
 ]
